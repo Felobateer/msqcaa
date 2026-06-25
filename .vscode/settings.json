@@ -1,0 +1,15 @@
+{
+    "sqltools.connections": [
+        {
+            "ssh": "Disabled",
+            "previewLimit": 50,
+            "server": "postgres_db",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "MSQCAA",
+            "database": "MSQCAA",
+            "username": "admin",
+            "password": "secret"
+        }
+    ]
+}

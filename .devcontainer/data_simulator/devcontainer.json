@@ -1,0 +1,11 @@
+{
+  "name": "Data Simulator",
+  "dockerComposeFile": ["../../docker-compose.yml"],
+  "service": "rust_app",
+  "workspaceFolder": "/app",
+  "customizations": {
+    "vscode": {
+      "extensions": ["rust-lang.rust-analyzer", "tamasfe.even-better-toml"]
+    }
+  }
+}

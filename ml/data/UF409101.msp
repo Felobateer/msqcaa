@@ -1,0 +1,24 @@
+Name: Acetaminophen / paracetamol
+Synon: Acetaminophen
+Synon: N-(4-Hydroxyphenyl)acetamide
+Synon: $:00in-source
+DB#: UF409101
+InChIKey: RZVAJINKPMORJF-UHFFFAOYSA-N
+Precursor_type: [M+H]+
+Spectrum_type: MS2
+PrecursorMZ: 152.0706
+Instrument_type: LC-ESI-ITFT
+Instrument: LTQ Orbitrap XL Thermo Scientific
+Ion_mode: P
+Collision_energy: 55 (nominal)
+Formula: C8H9NO2
+MW: 151
+ExactMass: 151.063328528
+Comments: "SMILES=CC(=O)NC1=CC=C(O)C=C1" "cas=103-90-2" "chebi=46195" "kegg=D00217" "pubchem cid=1983" "chemspider=1906" "InChI=InChI=1S/C8H9NO2/c1-6(10)9-7-2-4-8(11)5-3-7/h2-5,11H,1H3,(H,9,10)" "computed SMILES=OC1=CC=C(N=C(O)C)C=C1" "computed [2M+H-H2O]+=285.119287056" "computed [2M+K]+=341.224957056" "computed [M+H]+=152.071298528" "computed [2M+Na]+=325.116427056" "computed [2M+Cl]-=337.579657056" "computed [2M+HAc-H]-=361.170687056" "computed [M-H20-H]-=132.044938528" "computed [M-H]-=150.056052528" "computed [2M-H]-=301.119381056" "computed [M+Na]+=174.053098528" "computed [M+H-H2O]+=134.055958528" "computed [2M+NH4]+=320.165237056" "computed [M+Cl]-=186.516328528" "computed [M+NH4]+=169.101908528" "computed [M+K]+=190.161628528" "computed [2M+H]+=303.134627056" "computed [M+HAc-H]-=210.107358528" "accession=UF409101" "date=2017.01.05" "author=Schulze T, Krauss M, Department of Effect-Directed Analysis, Helmholtz Centre for Environmental Research - UFZ GmbH, Leipzig, Germany" "license=CC BY" "copyright=Copyright (C) 2017" "comment=CONFIDENCE standard compound" "comment=INTERNAL_ID 4091" "exact mass=151.0633" "ionization=ESI" "fragmentation mode=HCD" "resolution=15000" "column=Kinetex Core-Shell C18 2.6 um, 3.0 x 100 mm, Phenomenex" "flow gradient=90/10 at 0 min, 80/20 at 3.2 min, 5/95 at 17.8 min, 5/95 at 37.8 min, 90/10 at 37.9 min, 90/10 at 47 min" "flow rate=200 uL/min" "retention time=8.610 min" "SOLVENT A=water with 0.1% formic acid" "SOLVENT B=methanol with 0.1% formic acid" "recalibrate=loess on assigned fragments and MS1" "reanalyze=Peaks with additional N2/O included" "whole=RMassBank 2.2.1" "computed spectral entropy=0.7880993473387299" "computed normalized entropy=0.4896736564051825" "computed mass accuracy=4.593445412766892" "computed mass error=-6.985279999867089E-4" "SPLASH=splash10-03di-0900000000-ed26fb95b6aea6986085" "submitter=submitter = Tobias Schulze (Helmholtz Centre for Environmental Research, UFZ)" "MoNA Rating=5.0"
+Num Peaks: 5
+92.0495 2.072930
+93.0336 1.647964
+110.06 100.000000
+134.0603 2.085602
+152.0707 40.804532
+
