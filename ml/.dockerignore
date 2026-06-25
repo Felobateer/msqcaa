@@ -1,4 +1,14 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+juypter/AutogluonModels
+target/
+.uv_cache/
+
+# Virtual environments
 .venv
-jupyter
 .env
-README.md

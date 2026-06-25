@@ -1,1 +1,18 @@
+# Git
+.git
+.gitignore
+
+# Rust
+target/
+**/*.rs.bk
+
+# Python & ML
+.venv/
+__pycache__/
+*.pyc
+.uv_cache/
+AutogluonModels/
+mlruns/
+
+# Docker & Env
 .env

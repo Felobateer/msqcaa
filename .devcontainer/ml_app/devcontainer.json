@@ -10,7 +10,11 @@
         "ms-toolsai.jupyter",
         "mtxr.sqltools",
         "mtxr.sqltools-driver-pg"
-      ]
+      ],
+      "settings": {
+        "git.terminalAuthentication": true,
+        "github.gitAuthentication": true
+      }
     }
   },
   "features": {
