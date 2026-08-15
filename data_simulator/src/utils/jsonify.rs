@@ -1,5 +1,5 @@
-use serde_json::{json, Value};
-use crate::app::simulator::{Sample, FabData, MsData, RawData};
+use crate::app::simulator::{FabData, MsData, RawData, Sample};
+use serde_json::{Value, json};
 
 pub fn prepare_payloads(
     sample: &Sample,

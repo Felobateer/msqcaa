@@ -1,18 +1,17 @@
+use chrono::Utc;
+use log::{error, info};
 use ndarray::Array1;
 use rand::thread_rng;
-use rand_distr::{Normal, Distribution, Uniform};
+use rand_distr::{Distribution, Normal, Uniform};
 use serde::Serialize;
 use uuid::Uuid;
-use chrono::Utc;
-use log::{info, error};
-
 
 #[derive(Serialize)]
 pub struct Sample {
     pub id: Uuid,
     pub number: i64,
     pub synthesis_date: String,
-    pub analysis_date: String
+    pub analysis_date: String,
 }
 
 #[derive(Serialize)]
@@ -58,7 +57,7 @@ pub fn simulate_paracetamol_run() -> (Sample, FabData, Vec<MsData>, Vec<RawData>
         id: sample_id,
         number: sample_number,
         synthesis_date: now_rfc.clone(),
-        analysis_date: now_rfc.clone()
+        analysis_date: now_rfc.clone(),
     };
 
     let fab_data = FabData {
@@ -103,7 +102,7 @@ pub fn simulate_paracetamol_run() -> (Sample, FabData, Vec<MsData>, Vec<RawData>
             sample_id,
             mass_to_charge: observed_mz,
             charge: 1,
-            intensity: observed_intensity
+            intensity: observed_intensity,
         });
     }
 
@@ -115,7 +114,8 @@ pub fn simulate_paracetamol_run() -> (Sample, FabData, Vec<MsData>, Vec<RawData>
 
     if mz_axis.len() == intensity_axis.len() {
         for i in 0..mz_axis.len() {
-            raw_data.push(RawData { // Changed from append to push
+            raw_data.push(RawData {
+                // Changed from append to push
                 id: Uuid::new_v4(),
                 sample_id,
                 mz: mz_axis[i],
@@ -123,10 +123,20 @@ pub fn simulate_paracetamol_run() -> (Sample, FabData, Vec<MsData>, Vec<RawData>
             });
         }
     } else {
-        error!("mismatch length between mz: {} and intensity: {} in raw data", mz_axis.len(), intensity_axis.len());
+        error!(
+            "mismatch length between mz: {} and intensity: {} in raw data",
+            mz_axis.len(),
+            intensity_axis.len()
+        );
     }
 
-    info!("Generating Sample is now sucessful \n sample id: {} \n fab_data id: {} \n centroided length: {} \n raw data length: {}", sample.id, fab_data.id, centroided_peaks.len(), raw_data.len());
+    info!(
+        "Generating Sample is now sucessful \n sample id: {} \n fab_data id: {} \n centroided length: {} \n raw data length: {}",
+        sample.id,
+        fab_data.id,
+        centroided_peaks.len(),
+        raw_data.len()
+    );
 
     (sample, fab_data, centroided_peaks, raw_data)
 }
