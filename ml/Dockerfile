@@ -1,24 +1,31 @@
-FROM python:3.12-slim-bookworm
+# ---------------------
+#  Stage 1: Build stage
+# ---------------------
+FROM ghcr.io/astral-sh/uv:python3.12-bookworm-slim AS builder
+WORKDIR /app
 
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
+ENV UV_COMPILE_BYTECODE=1 \
+    UV_LINK_MODE=copy
+
+COPY pyproject.toml uv.lock ./
+RUN --mount=type=cache,target=/root/.cache/uv \
+    uv sync --frozen --no-install-project --no-dev
+
+# ---------------------
+#  Stage 2: Runtime stage
+# ---------------------
+FROM python:3.12-slim-bookworm AS runtime
 
 WORKDIR /app
 
-# 1. Install Java for PySpark BEFORE Python dependencies to maximize cache efficiency
-RUN apt-get update && apt-get install -y default-jre && rm -rf /var/lib/apt/lists/*
+ENV PYTHONUNBUFFERED=1 \
+    PATH="/app/.venv/bin:$PATH"
 
-COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+RUN useradd -m -u 10001 appuser
 
-# 2. Copy ONLY dependency files first
-COPY pyproject.toml uv.lock ./
+COPY --from=builder --chown=appuser:appuser /app/.venv /app/.venv
+COPY --chown=appuser:appuser . .
 
-# 3. Use `uv sync` to create the virtual environment expected by `uv run`
-RUN --mount=type=cache,target=/root/.cache/uv \
-    uv sync
+USER appuser
 
-# 4. Copy your actual code AFTER dependencies are installed
-COPY . .
-
-# Keep container alive for dev and ML app
-CMD ["sleep", "infinity"]
+CMD ["python", "main.py"]
